@@ -312,7 +312,8 @@ int main(void)
 			case 6:
 			{
 				vector<pc>case6;
-				for (size_t i=0; i<pcs.size(); i++)
+				
+				for(size_t i=0; i<pcs.size(); i++)
 				{
 					if(pcs[i].getStatus()=="tobesold")
 					{
@@ -332,7 +333,7 @@ int main(void)
 				vector<pc>case7;
 
 				cout<<"Enter CPU model."<<endl; 
-				cin >> cpumodel1;
+				cin>>cpumodel1;
 				cout<<"Enter RAM."<<endl; 
 				cin>>ram1;
 
@@ -353,7 +354,7 @@ int main(void)
 			case 8:
 			{
 				vector<pc>case8;
-				for (size_t i=0; i<pcs.size(); i++)
+				for(size_t i=0; i<pcs.size(); i++)
 				{
 					if(pcs[i].getStatus()=="sold")
 					{
@@ -362,7 +363,7 @@ int main(void)
 					}
 				}
 
-				showall(case8); 
+				showall(case8);
 				break;
 			}
 		}
