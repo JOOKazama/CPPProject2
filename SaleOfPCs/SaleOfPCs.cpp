@@ -10,15 +10,15 @@
 
 using namespace std;
 
-class pc
+class PC
 {
 	private:
 
 		int id;
 		string brand;
 		string model;
-		string cpumaker;
-		string cpumodel;
+		string cpu_maker;
+		string cpu_model;
 		float hz;
 		int cores;
 		int ram;
@@ -27,146 +27,103 @@ class pc
 
 	public:
 
-		void setId(int id1) { id=id1; }
-		void setBrand(string brand1) { brand=brand1; }
-		void setModel(string model1) { model=model1; }
-		void setCpumaker(string cpumaker1) { cpumaker=cpumaker1; }
-		void setCpumodel(string cpumodel1) { cpumodel=cpumodel1; }
-		void setHz(float hz1) { hz=hz1; }
-		void setCores(int cores1) { cores=cores1; }
-		void setRam(int ram1) { ram=ram1; }
-		void setPrice(float price1) { price=price1; }
-		void setStatus(string status1) { status=status1; }
+		void set_id(int id1) { this->id=id1; }
+		void set_brand(string brand1) { this->brand=brand1; }
+		void set_model(string model1) { this->model=model1; }
+		void set_cpu_maker(string cpu_maker) { this->cpu_maker=cpu_maker; }
+		void set_cpu_model(string cpu_model) { this->cpu_model=cpu_model; }
+		void set_hz(float hz) { this->hz=hz; }
+		void set_cores(int cores) { this->cores=cores; }
+		void set_ram(int ram) { this->ram=ram; }
+		void set_price(float price) { this->price=price; }
+		void set_status(string status) { this->status=status; }
 
-		int getId() { return id; }
-		string getBrand() { return brand; }
-		string getModel() { return model; }
-		string getCpumaker() { return cpumaker; }
-		string getCpumodel() { return cpumodel; }
-		float getHz() { return hz; }
-		int getCores() { return cores; }
-		int getRam() { return ram; }
-		float getPrice() { return price; }
-		string getStatus() { return status; }
+		int get_id() { return id; }
+		string get_brand() { return brand; }
+		string get_model() { return model; }
+		string get_cpu_maker() { return cpu_maker; }
+		string get_cpu_model() { return cpu_model; }
+		float get_hz() { return hz; }
+		int get_cores() { return cores; }
+		int get_ram() { return ram; }
+		float get_price() { return price; }
+		string get_status() { return status; }
 
-		bool operator ==(const pc& a)
+		bool operator ==(const PC& pc)
 		{
-			if(brand==a.brand && model==a.model && cpumaker==a.cpumaker && cpumodel==a.cpumodel && hz==a.hz && cores==a.cores && ram==a.ram && price==a.price && status==a.status)
+			if(brand==pc.brand && model==pc.model && cpu_maker==pc.cpu_maker && cpu_model==pc.cpu_model && hz==pc.hz && cores==pc.cores && ram==pc.ram && price==pc.price && status==pc.status)
 			{ return true; }
 			return false;
 		}
 
-		static bool compareId(const pc& a, const pc& b) { return a.id<b.id; }
-		static bool comparePrice(const pc& a, const pc& b) { return a.price<b.price; }
-		static bool compareCpumodel(const pc& a, const pc& b) { return a.cpumodel<b.cpumodel; }
+		static bool compare_id(const PC& pc, const PC& pc1) { return pc.id<pc1.id; }
+		static bool compare_price(const PC& pc, const PC& pc1) { return pc.price<pc1.price; }
+		static bool compare_cpu_model(const PC& pc, const PC& pc1) { return pc.cpu_model<pc1.cpu_model; }
 	};
 
-void setpc(pc &a)
+void set_PC(PC &pc)
 {
-	int int1, int2, int3, int4;
-	string str1, str2, str3, str4, str5;
-	float float1, float2;
+	int id, cores, ram;
+	string brand, model, cpu_maker, cpu_model, status;
+	float hz, price;
 
 	cout<<"Enter ID."<<endl;
-	cin>>int1; 
-	a.setId(int1);
+	cin>>id;
+	pc.set_id(id);
 
 	cout<<"Enter brand."<<endl;
-	cin>>str1; 
-	a.setBrand(str1);
+	cin>>brand;
+	pc.set_brand(brand);
 
 	cout<<"Enter model."<<endl;
-	cin>>str2;
-	a.setModel(str2);
+	cin>>model;
+	pc.set_model(model);
 
 	cout<<"Enter CPU maker."<<endl;
-	cin>>str3;
-	a.setCpumaker(str3);
+	cin>>cpu_maker;
+	pc.set_cpu_maker(cpu_maker);
 
 	cout<<"Enter CPU model."<<endl;
-	cin>>str4;
-	a.setCpumodel(str4);
+	cin>>cpu_model;
+	pc.set_cpu_model(cpu_model);
 
 	cout<<"Enter CPU Hz."<<endl;
-	cin>>float1;
-	a.setHz(float1);
+	cin>>hz;
+	pc.set_hz(hz);
 
 	cout<<"Enter CPU Cores."<<endl;
-	cin>>int2;
-	a.setCores(int2);
+	cin>>cores;
+	pc.set_cores(cores);
 
 	cout<<"Enter RAM."<<endl;
-	cin>>int3;
-	a.setRam(int3);
+	cin>>ram;
+	pc.set_ram(ram);
 
 	cout<<"Enter Price."<<endl;
-	cin>>float2;
-	a.setPrice(float2);
+	cin>>price;
+	pc.set_price(price);
 
-	cout<<"Enter Status(tobesold or sold)."<<endl;
-	cin>>str5;
-	a.setStatus(str5);
+	cout<<"Enter Status(to be sold or sold)."<<endl;
+	cin>>status;
+	pc.set_status(status);
 }
 
-void setpc1(pc &a)
+void save_to_file(PC pc, string file_name)
 {
-	int int2, int3, int4;
-	string str1, str2, str3, str4, str5;
-	float float1, float2;
-
-	cout<<"Enter brand."<<endl;
-	cin>>str1;
-	a.setBrand(str1);
-
-	cout<<"Enter model."<<endl;
-	cin>>str2;
-	a.setModel(str2);
-
-	cout<<"Enter CPU maker."<<endl;
-	cin>>str3;
-	a.setCpumaker(str3);
-
-	cout<<"Enter CPU model."<<endl;
-	cin>>str4;
-	a.setCpumodel(str4);
-
-	cout<<"Enter CPU Hz."<<endl;
-	cin>>float1;
-	a.setHz(float1);
-
-	cout<<"Enter CPU Cores."<<endl;
-	cin>>int2;
-	a.setCores(int2);
-
-	cout<<"Enter RAM."<<endl;
-	cin>>int3;
-	a.setRam(int3);
-
-	cout<<"Enter Price."<<endl;
-	cin>>float2;
-	a.setPrice(float2);
-
-	cout<<"Enter Status(tobesold or sold)."<<endl;
-	cin>>str5;
-	a.setStatus(str5);
+	ofstream my_file(file_name.c_str(), ios_base::app);
+	my_file<<pc.get_id()<<" ";
+	my_file<<pc.get_brand()<<" ";
+	my_file<<pc.get_model()<<" ";
+	my_file<<pc.get_cpu_maker()<<" ";
+	my_file<<pc.get_cpu_model()<<" ";
+	my_file<<pc.get_hz()<<" ";
+	my_file<<pc.get_cores()<<" ";
+	my_file<<pc.get_ram()<<" ";
+	my_file<<pc.get_price()<< " ";
+	my_file<<pc.get_status()<<endl;
 }
 
-void savetofile(pc pc, string str)
-{
-	ofstream myf(str.c_str(), ios_base::app);
-	myf<<pc.getId()<<" ";
-	myf<<pc.getBrand()<<" ";
-	myf<<pc.getModel()<<" ";
-	myf<<pc.getCpumaker()<<" ";
-	myf<<pc.getCpumodel()<<" ";
-	myf<<pc.getHz()<<" ";
-	myf<<pc.getCores()<<" ";
-	myf<<pc.getRam()<<" ";
-	myf<<pc.getPrice()<< " ";
-	myf<<pc.getStatus()<<endl;
-}
-
-void file(pc a)
+void ask_for_save_to_file(PC pc)
 {
 	int choice;
 	cout<<"1.Do you want to save the info to file? (1 for yes / 2 for no) "<<endl;
@@ -176,7 +133,7 @@ void file(pc a)
 	{
 		case 1: 
 		{ 
-			savetofile(a, "text.txt"); 
+			save_to_file(pc, "text.txt");
 			break; 
 		}
 
@@ -184,27 +141,27 @@ void file(pc a)
 	}
 }
 
-void showall(vector<pc>&a)
+void show_all_pcs(vector<PC>&pc)
 {
-	for(size_t i=0; i<a.size(); i++)
+	for(size_t i=0; i<pc.size(); i++)
 	{
-		cout<<"The ID is: "<<a[i].getId()<<endl;
-		cout<<"The brand is: "<<a[i].getBrand()<<endl;
-		cout<<"The model is: "<<a[i].getModel()<<endl;
-		cout<<"The CPU maker is: "<<a[i].getCpumaker()<<endl;
-		cout<<"The CPU model is: "<<a[i].getCpumodel()<<endl;
-		cout<<"The Hz are: "<<a[i].getHz()<<endl;
-		cout<<"The cores are: "<<a[i].getCores()<<endl;
-		cout<<"The RAM is: "<<a[i].getRam()<<endl;
-		cout<<"The price is: "<<a[i].getPrice()<<endl;
-		cout<<"The status is: "<<a[i].getStatus()<<endl<<endl;
+		cout<<"The ID is: "<<pc[i].get_id()<<endl;
+		cout<<"The brand is: "<<pc[i].get_brand()<<endl;
+		cout<<"The model is: "<<pc[i].get_model()<<endl;
+		cout<<"The CPU maker is: "<<pc[i].get_cpu_maker()<<endl;
+		cout<<"The CPU model is: "<<pc[i].get_cpu_model()<<endl;
+		cout<<"The Hz are: "<<pc[i].get_hz()<<endl;
+		cout<<"The cores are: "<<pc[i].get_cores()<<endl;
+		cout<<"The RAM is: "<<pc[i].get_ram()<<endl;
+		cout<<"The price is: "<<pc[i].get_price()<<endl;
+		cout<<"The status is: "<<pc[i].get_status()<<endl<<endl;
 	}
 }
 
 int main(void)
 {
-	vector<pc>pcs; 
-	int choice, n, choice1, id1;
+	vector<PC>pcs;
+	int choice, number_of_pcs, choice1, id;
 
 	do
 	{
@@ -219,20 +176,20 @@ int main(void)
 			<<"8.Show all sold PCs in order(CPU model).\n"
 			<<"9.Exit \n";
 
-		cin>>choice; 
-		pc single;
+		cin>>choice;
+		PC pc;
 
 		switch(choice)
 		{
 			case 1:
 			{
-				setpc(single);
+				set_PC(pc);
 
-				if(find(pcs.begin(), pcs.end(), single)!=pcs.end()) { cout<<"There is already a PC like this!"<<endl; }
+				if(find(pcs.begin(), pcs.end(), pc)!=pcs.end()) { cout<<"There is already a PC like this!"<<endl; }
 				else 
 				{ 
-					pcs.push_back(single); 
-					file(single); 
+					pcs.push_back(pc);
+					ask_for_save_to_file(pc);
 				}
 
 				break;
@@ -241,32 +198,32 @@ int main(void)
 			case 2:
 			{
 				cout<<"How many PCs?"; 
-				cin>>n;
+				cin>>number_of_pcs;
 
-				while(n>100) 
+				while(number_of_pcs>100)
 				{ 
 					cout<<"How many PCs?";
-					cin>>n;
+					cin>>number_of_pcs;
 				}
 
-				for(size_t i=0; i<n; i++)
+				for(size_t i=0; i<number_of_pcs; i++)
 				{
-					pc single;
-					setpc(single);
+					PC single;
+					set_PC(single);
 
 					if(find(pcs.begin(), pcs.end(), single)!=pcs.end()) { cout<<"There is already a PC like this!"<<endl; }
 
 					else
 					{
 						pcs.push_back(single); 
-						file(single);
+						ask_for_save_to_file(single);
 						int choice;
 						cout<<".Do you want to stop adding? (1 for yes/ 2 for no)"<<endl;
 						cin>>choice;
 
 						switch(choice)
 						{
-							case 1: { i=n; }
+							case 1: { i=number_of_pcs; }
 							case 2: {}
 						}
 					}
@@ -277,18 +234,18 @@ int main(void)
 
 			case 3: 
 			{ 
-				showall(pcs);
+				show_all_pcs(pcs);
 				break;
 			}
 
 			case 4:
 			{
 				cout<<"Enter ID."<<endl;
-				cin>>id1;
+				cin>>id;
 
 				for(size_t i=0; i<pcs.size(); i++)
 				{
-					if(id1==pcs[i].getId() && pcs[i].getStatus()=="tobesold") { setpc1(pcs[i]); }
+					if(id==pcs[i].get_id() && pcs[i].get_status()=="tobesold") { set_PC(pcs[i]); }
 					else cout<<"The pc is sold!"<<endl;
 				}
 				
@@ -298,11 +255,11 @@ int main(void)
 			case 5:
 			{
 				cout<<"Enter ID."<<endl;
-				cin>>id1;
+				cin>>id;
 
 				for(size_t i=0; i<pcs.size(); i++)
 				{
-					if(id1==pcs[i].getId() && pcs[i].getStatus()=="tobesold") { pcs[i].setStatus("sold"); }
+					if(id==pcs[i].get_id() && pcs[i].get_status()=="tobesold") { pcs[i].set_status("sold"); }
 					else cout<<"The pc is sold!"<<endl;
 				}
 				
@@ -311,60 +268,64 @@ int main(void)
 
 			case 6:
 			{
-				vector<pc>case6;
+				vector<PC>vector_pcs;
 				for (size_t i=0; i<pcs.size(); i++)
 				{
-					if(pcs[i].getStatus()=="tobesold")
+					if(pcs[i].get_status()=="tobesold")
 					{
-						case6.push_back(pcs[i]);
-						sort(case6.begin(), case6.end(), pc::compareId);
+						vector_pcs.push_back(pcs[i]);
+						sort(vector_pcs.begin(), vector_pcs.end(), PC::compare_id);
 					}
 				}
 
-				showall(case6); 
+				show_all_pcs(vector_pcs);
 				break;
 			}
 
 			case 7:
 			{
-				string cpumodel1;
-				int ram1;
-				vector<pc>case7;
+				string cpu_model;
+				int ram;
+				vector<PC>vector_pcs;
 
 				cout<<"Enter CPU model."<<endl; 
-				cin >> cpumodel1;
+				cin>>cpu_model;
 				cout<<"Enter RAM."<<endl; 
-				cin>>ram1;
+				cin>>ram;
 
 				for(size_t i=0; i<pcs.size(); i++)
 				{
-					if(cpumodel1==pcs[i].getCpumodel() && ram1==pcs[i].getRam())
+					if(cpu_model==pcs[i].get_cpu_model() && ram==pcs[i].get_ram())
 					{
-						case7.push_back(pcs[i]);
-						sort(case7.begin(), case7.end(), pc::comparePrice);
-						reverse(case7.begin(), case7.end());
+						vector_pcs.push_back(pcs[i]);
+						sort(vector_pcs.begin(), vector_pcs.end(), PC::compare_price);
+						reverse(vector_pcs.begin(), vector_pcs.end());
 					}
 				}
 
-				showall(case7); 
+				show_all_pcs(vector_pcs);
 				break;
 			}
 
 			case 8:
 			{
-				vector<pc>case8;
+				vector<PC>vector_pcs;
 				for (size_t i=0; i<pcs.size(); i++)
 				{
-					if(pcs[i].getStatus()=="sold")
+					if(pcs[i].get_status()=="sold")
 					{
-						case8.push_back(pcs[i]);
-						sort(case8.begin(), case8.end(), pc::compareCpumodel);
+						vector_pcs.push_back(pcs[i]);
+						sort(vector_pcs.begin(), vector_pcs.end(), PC::compare_cpu_model);
 					}
 				}
 
-				showall(case8); 
+				show_all_pcs(vector_pcs);
 				break;
 			}
+
+			case 9:
+				exit(0);
+				break;
 		}
 
 		cout<<"Would you like to return to the menu? 1.Yes 2.No"; 
