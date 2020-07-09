@@ -235,6 +235,7 @@ int main(void)
 			case 3: 
 			{ 
 				show_all_pcs(pcs);
+				
 				break;
 			}
 
@@ -279,6 +280,7 @@ int main(void)
 				}
 
 				show_all_pcs(vector_pcs);
+				
 				break;
 			}
 
@@ -304,6 +306,7 @@ int main(void)
 				}
 
 				show_all_pcs(vector_pcs);
+				
 				break;
 			}
 
@@ -320,11 +323,13 @@ int main(void)
 				}
 
 				show_all_pcs(vector_pcs);
+				
 				break;
 			}
 
 			case 9:
 				exit(0);
+				
 				break;
 		}
 
