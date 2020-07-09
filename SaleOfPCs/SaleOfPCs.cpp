@@ -134,6 +134,7 @@ void ask_for_save_to_file(PC pc)
 		case 1: 
 		{ 
 			save_to_file(pc, "text.txt");
+			
 			break; 
 		}
 
